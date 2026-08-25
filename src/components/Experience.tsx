@@ -11,7 +11,7 @@ export function Experience() {
         {jobs.map((job, i) => (
           <Reveal key={job.company} delay={i * 70}>
             <div className="grid grid-cols-[1fr_auto] gap-4">
-              <div className="space-y-2">
+              <div className="border-l-2 border-border pl-4 space-y-2 transition-colors hover:border-foreground/30">
                 <div>
                   <h3 className="text-base font-semibold">{job.company}</h3>
                   <p className="text-base text-muted-foreground">{job.role}</p>

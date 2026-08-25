@@ -16,11 +16,23 @@ export function Hero() {
           </div>
         </div>
 
-        <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-lg">
+        <p className="text-base text-muted-foreground leading-relaxed mb-5 max-w-lg">
           Building thoughtful enterprise software at{' '}
           <span className="text-foreground font-medium">Deloitte<span style={{ color: '#86BC25', fontSize: '1.3em', lineHeight: 1 }}>.</span></span> Passionate about clean
           architecture, developer experience, and products that actually ship.
         </p>
+
+        <a
+          href="#connect"
+          className="inline-flex items-center gap-2 mb-8 text-sm text-muted-foreground hover:text-foreground transition-colors group"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+          </span>
+          Open to new opportunities
+          <span className="transition-transform group-hover:translate-x-0.5">→</span>
+        </a>
       </Reveal>
 
       <Reveal delay={80}>

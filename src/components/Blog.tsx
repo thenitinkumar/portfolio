@@ -140,13 +140,15 @@ export function Blog() {
           </p>
         )}
 
-        {!loading && !error && posts.map((post, i) => (
+        {!loading && !error && (
+        <div className="group/list">
+        {posts.map((post, i) => (
           <Reveal key={post.link} delay={i * 50}>
             <a
               href={post.link}
               target="_blank"
               rel="noreferrer"
-              className="group flex items-center justify-between gap-4 py-4 border-b border-border last:border-0 transition-opacity hover:opacity-60"
+              className="group flex items-center justify-between gap-4 py-4 border-b border-border last:border-0 transition-opacity group-hover/list:opacity-40 hover:opacity-100!"
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
               onMouseMove={onMouseMove}
@@ -159,6 +161,8 @@ export function Blog() {
             </a>
           </Reveal>
         ))}
+        </div>
+        )}
       </div>
 
       {/* Floating Medium-style preview card — direct DOM positioning via ref (no re-render on mousemove) */}

@@ -10,8 +10,8 @@ export function Skills() {
       <Reveal>
         <div className="space-y-4">
           {skillGroups.map((group) => (
-            <div key={group.label} className="grid grid-cols-[80px_1fr] gap-4 items-start">
-              <p className="text-sm text-muted-foreground pt-0.5 leading-relaxed">{group.label}</p>
+            <div key={group.label} className="grid grid-cols-[100px_1fr] gap-4 items-start">
+              <p className="text-sm text-muted-foreground pt-0.5 leading-relaxed whitespace-nowrap">{group.label}</p>
               <div className="flex flex-wrap gap-1.5">
                 {group.skills.map((s) => <TechBadge key={s} name={s} />)}
               </div>

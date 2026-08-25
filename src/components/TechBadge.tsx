@@ -9,6 +9,7 @@ export function TechBadge({ name }: { name: string }) {
       target="_blank"
       rel="noreferrer"
       aria-label={`${name} documentation, opens in new tab`}
+      className="inline-flex items-center"
     >
       <Badge variant="secondary" className="text-xs font-normal cursor-pointer hover:bg-foreground hover:text-background transition-colors">
         {name}
