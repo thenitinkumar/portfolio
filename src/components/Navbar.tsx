@@ -12,6 +12,13 @@ import { GITHUB_USERNAME } from '@/data/config'
 
 const NAV_SECTIONS = ['work', 'experience', 'blog', 'connect'] as const
 
+const NAV_LABELS: Record<typeof NAV_SECTIONS[number], string> = {
+  work: 'Projects',
+  experience: 'Experience',
+  blog: 'Blog',
+  connect: 'Connect',
+}
+
 export function Navbar() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
@@ -58,7 +65,7 @@ export function Navbar() {
               aria-current={active === id ? 'true' : undefined}
               className={navLink(id)}
             >
-              {id === 'work' ? 'Projects' : id.charAt(0).toUpperCase() + id.slice(1)}
+              {NAV_LABELS[id]}
             </Link>
           ))}
 

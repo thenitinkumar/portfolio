@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     title: 'Nitin Kumar R — Backend Engineer',
     description:
       'Backend Engineer and Consultant at Deloitte. Building thoughtful enterprise software with a focus on clean architecture and developer experience.',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Nitin Kumar R' }],
   },
   twitter: {
     card: 'summary_large_image',

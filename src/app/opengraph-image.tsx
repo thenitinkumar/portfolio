@@ -3,8 +3,13 @@ import { ImageResponse } from 'next/og'
 export const runtime = 'edge'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
+export const alt = 'Nitin Kumar R'
 
-export default function Image() {
+export default async function Image() {
+  const geistFont = await fetch(
+    new URL('./GeistRegular.ttf', import.meta.url)
+  ).then((res) => res.arrayBuffer())
+
   return new ImageResponse(
     (
       <div
@@ -17,7 +22,7 @@ export default function Image() {
           justifyContent: 'center',
           background: '#0a0a0a',
           padding: '80px 96px',
-          fontFamily: 'system-ui, sans-serif',
+          fontFamily: 'Geist',
         }}
       >
         {/* Monogram */}
@@ -79,6 +84,9 @@ export default function Image() {
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [{ name: 'Geist', data: geistFont, style: 'normal', weight: 400 }],
+    }
   )
 }
