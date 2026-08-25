@@ -58,7 +58,7 @@ export function Navbar() {
               aria-current={active === id ? 'true' : undefined}
               className={navLink(id)}
             >
-              {id.charAt(0).toUpperCase() + id.slice(1)}
+              {id === 'work' ? 'Projects' : id.charAt(0).toUpperCase() + id.slice(1)}
             </Link>
           ))}
 
