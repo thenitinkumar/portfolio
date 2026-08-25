@@ -1,6 +1,9 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+
+// useLayoutEffect runs before browser paint (prevents flash); falls back to useEffect on server
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 const GREETINGS = [
   'नमस्ते',        // Sanskrit
@@ -31,16 +34,15 @@ interface Fly { x: number; y: number; scale: number }
 
 export function Intro() {
   const [index, setIndex] = useState(0)
-  const [phase, setPhase] = useState<Phase>('words')
+  const [phase, setPhase] = useState<Phase>('done') // default 'done' — no SSR overlay
   const [fly, setFly] = useState<Fly>({ x: 0, y: 0, scale: 1 })
   const finalRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    if (sessionStorage.getItem('intro-shown')) {
-      setPhase('done')
-      return
-    }
+  useIsomorphicLayoutEffect(() => {
+    // Runs before browser paints, so setting phase here causes no visible flash
+    if (sessionStorage.getItem('intro-shown')) return
 
+    setPhase('words')
     document.body.style.overflowY = 'hidden'
 
     let i = 0
