@@ -36,10 +36,10 @@ function YoutubeSVG({ className }: { className?: string }) {
 
 const links = [
   { label: 'Email', value: 'nitinkumar72k2@gmail.com', href: 'mailto:nitinkumar72k2@gmail.com', Icon: Mail },
-  { label: 'LinkedIn', value: 'linkedin.com/in/thenitinkumar', href: 'https://linkedin.com/in/thenitinkumar', Icon: LinkedinSVG },
+  { label: 'LinkedIn', value: 'linkedin.com/in/nitinkumar72k2', href: 'https://linkedin.com/in/nitinkumar72k2', Icon: LinkedinSVG },
   { label: 'GitHub', value: 'github.com/thenitinkumar', href: 'https://github.com/thenitinkumar', Icon: GithubIcon },
-  { label: 'X / Twitter', value: '@thenitinkumar', href: 'https://x.com/thenitinkumar', Icon: XSVG },
-  { label: 'Instagram', value: '@thenitinkumar', href: 'https://instagram.com/thenitinkumar', Icon: InstagramSVG },
+  { label: 'X / Twitter', value: '@nitinnn_kumar', href: 'https://x.com/nitinnn_kumar', Icon: XSVG },
+  { label: 'Instagram', value: '@nitinnn_kumar', href: 'https://instagram.com/nitinnn_kumar', Icon: InstagramSVG },
   { label: 'YouTube', value: '@thenitinkumar', href: 'https://youtube.com/@thenitinkumar', Icon: YoutubeSVG },
 ]
 
