@@ -6,7 +6,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { Button } from '@/components/ui/button'
 import { Moon, Sun } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { GithubIcon } from '@/components/icons/GithubIcon'
 import { GITHUB_USERNAME } from '@/data/config'
 
@@ -23,6 +23,8 @@ export function Navbar() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [active, setActive] = useState<string | null>(null)
+  const lockedRef = useRef(false)
+  const lockTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => { setMounted(true) }, [])
 
@@ -33,15 +35,34 @@ export function Navbar() {
       const el = document.getElementById(id)
       if (!el) return
       const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActive(id) },
-        { rootMargin: '-40% 0px -55% 0px' }
+        ([entry]) => {
+          if (!lockedRef.current && entry.isIntersecting) setActive(id)
+        },
+        { rootMargin: '-15% 0px -50% 0px' }
       )
       obs.observe(el)
       observers.push(obs)
     })
 
-    return () => observers.forEach(o => o.disconnect())
+    const onScroll = () => {
+      const nearBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80
+      if (nearBottom) setActive('connect')
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    return () => {
+      observers.forEach(o => o.disconnect())
+      window.removeEventListener('scroll', onScroll)
+    }
   }, [])
+
+  function handleNavClick(id: string) {
+    setActive(id)
+    lockedRef.current = true
+    if (lockTimer.current) clearTimeout(lockTimer.current)
+    lockTimer.current = setTimeout(() => { lockedRef.current = false }, 1000)
+  }
 
   const navLink = (id: string) =>
     cn(
@@ -64,6 +85,7 @@ export function Navbar() {
               href={`#${id}`}
               aria-current={active === id ? 'true' : undefined}
               className={navLink(id)}
+              onClick={() => handleNavClick(id)}
             >
               {NAV_LABELS[id]}
             </Link>
