@@ -5,7 +5,7 @@ import { jobs } from '@/data/experience'
 export function Experience() {
   return (
     <section id="experience" className="py-12 border-t border-border scroll-mt-20">
-      <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-6">Experience</p>
+      <p className="font-heading italic text-2xl text-muted-foreground mb-6">experience.</p>
 
       <div className="space-y-8">
         {jobs.map((job, i) => (

@@ -5,7 +5,7 @@ import { skillGroups } from '@/data/skills'
 export function Skills() {
   return (
     <section id="skills" className="py-12 border-t border-border scroll-mt-20">
-      <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-6">Skills</p>
+      <p className="font-heading italic text-2xl text-muted-foreground mb-6">skills.</p>
 
       <Reveal>
         <div className="space-y-4">

@@ -7,7 +7,7 @@ import { projects } from '@/data/projects'
 export function Projects() {
   return (
     <section id="work" className="py-12 border-t border-border scroll-mt-20">
-      <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-6">Work</p>
+      <p className="font-heading italic text-2xl text-muted-foreground mb-6">work.</p>
 
       <div className="space-y-5">
         {projects.map((p, i) => (

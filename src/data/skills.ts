@@ -1,7 +1,7 @@
 export const skillGroups: { label: string; skills: string[] }[] = [
   {
     label: 'Languages',
-    skills: ['TypeScript', 'JavaScript', 'Python', 'Java', 'SQL', 'Rust'],
+    skills: ['TypeScript', 'JavaScript', 'Python', 'Java'],
   },
   {
     label: 'Frontend',
@@ -9,11 +9,11 @@ export const skillGroups: { label: string; skills: string[] }[] = [
   },
   {
     label: 'Backend',
-    skills: ['Node.js', 'Express', 'FastAPI', 'Spring Boot', 'GraphQL'],
+    skills: ['Node.js', 'Express', 'FastAPI'],
   },
   {
     label: 'Cloud & Infra',
-    skills: ['Azure', 'AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Terraform'],
+    skills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Terraform'],
   },
   {
     label: 'Data & AI',

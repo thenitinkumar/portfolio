@@ -104,9 +104,9 @@ export function Blog() {
   const hoveredPost = hovered !== null ? posts[hovered] : null
 
   return (
-    <section id="blog" className="py-12 border-t border-border scroll-mt-20">
+    <section id="writing" className="py-12 border-t border-border scroll-mt-20">
       <div className="flex items-center justify-between mb-6">
-        <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Writing</p>
+        <p className="font-heading italic text-2xl text-muted-foreground">writing.</p>
         <a
           href={`https://medium.com/@${MEDIUM_USERNAME}`}
           target="_blank"
