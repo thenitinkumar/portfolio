@@ -1,6 +1,13 @@
-import { ContribGraph } from '@/components/ContribGraph'
+'use client'
+
+import dynamic from 'next/dynamic'
 import { Reveal } from '@/components/Reveal'
 import { RoleCycler } from '@/components/RoleCycler'
+
+const ContribGraph = dynamic(
+  () => import('@/components/ContribGraph').then(m => m.ContribGraph),
+  { ssr: false }
+)
 
 export function Hero() {
   return (
