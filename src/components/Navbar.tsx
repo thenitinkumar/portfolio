@@ -43,6 +43,8 @@ export function Navbar() {
   const [statsOpen, setStatsOpen] = useState(false)
   const lockedRef = useRef(false)
   const lockTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const workLeaveTimer = useRef<ReturnType<typeof setTimeout>>()
+  const statsLeaveTimer = useRef<ReturnType<typeof setTimeout>>()
 
   useEffect(() => { setMounted(true) }, [])
   useEffect(() => { setActive(null) }, [pathname])
@@ -124,8 +126,8 @@ export function Navbar() {
           {/* Work dropdown */}
           <div
             className="relative"
-            onMouseEnter={() => setWorkOpen(true)}
-            onMouseLeave={() => setWorkOpen(false)}
+            onMouseEnter={() => { clearTimeout(workLeaveTimer.current); setWorkOpen(true) }}
+            onMouseLeave={() => { workLeaveTimer.current = setTimeout(() => setWorkOpen(false), 150) }}
           >
             <button
               className={cn(
@@ -141,13 +143,13 @@ export function Navbar() {
             </button>
 
             {workOpen && (
-              <div className="absolute left-0 top-full mt-1 w-40 rounded-lg border border-border bg-background/95 backdrop-blur-md shadow-lg py-1 z-50">
+              <div className="absolute left-0 top-full mt-0.5 w-40 rounded-lg border border-border bg-background/95 backdrop-blur-md shadow-lg py-1 z-50 group/items">
                 {WORK_SECTIONS.map(id => (
                   <Link
                     key={id}
                     href={homeSectionHref(id)}
                     className={cn(
-                      'flex items-center px-3 py-2 text-xs transition-colors hover:bg-muted rounded-md mx-1',
+                      'flex items-center px-3 py-2 text-xs transition-all hover:bg-muted rounded-md mx-1 group-hover/items:opacity-40 hover:opacity-100!',
                       active === id ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
                     )}
                     onClick={() => handleNavClick(id)}
@@ -175,8 +177,8 @@ export function Navbar() {
           {/* Stats dropdown */}
           <div
             className="relative"
-            onMouseEnter={() => setStatsOpen(true)}
-            onMouseLeave={() => setStatsOpen(false)}
+            onMouseEnter={() => { clearTimeout(statsLeaveTimer.current); setStatsOpen(true) }}
+            onMouseLeave={() => { statsLeaveTimer.current = setTimeout(() => setStatsOpen(false), 150) }}
           >
             <button
               className={cn(
@@ -192,13 +194,13 @@ export function Navbar() {
             </button>
 
             {statsOpen && (
-              <div className="absolute right-0 top-full mt-1 w-44 rounded-lg border border-border bg-background/95 backdrop-blur-md shadow-lg py-1 z-50">
+              <div className="absolute right-0 top-full mt-0.5 w-44 rounded-lg border border-border bg-background/95 backdrop-blur-md shadow-lg py-1 z-50 group/items">
                 {STATS_SECTIONS.map(id => (
                   <Link
                     key={id}
                     href={statsSectionHref(id)}
                     className={cn(
-                      'flex items-center px-3 py-2 text-xs transition-colors hover:bg-muted rounded-md mx-1',
+                      'flex items-center px-3 py-2 text-xs transition-all hover:bg-muted rounded-md mx-1 group-hover/items:opacity-40 hover:opacity-100!',
                       active === id ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
                     )}
                     onClick={() => handleNavClick(id)}
