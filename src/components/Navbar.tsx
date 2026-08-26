@@ -149,7 +149,7 @@ export function Navbar() {
                     key={id}
                     href={homeSectionHref(id)}
                     className={cn(
-                      'flex items-center px-3 py-2 text-xs transition-all hover:bg-muted rounded-md mx-1 group-hover/items:opacity-40 hover:opacity-100!',
+                      'flex items-center px-3 py-2 text-xs transition-all rounded-md mx-1 group-hover/items:opacity-40 hover:opacity-100!',
                       active === id ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
                     )}
                     onClick={() => handleNavClick(id)}
@@ -200,7 +200,7 @@ export function Navbar() {
                     key={id}
                     href={statsSectionHref(id)}
                     className={cn(
-                      'flex items-center px-3 py-2 text-xs transition-all hover:bg-muted rounded-md mx-1 group-hover/items:opacity-40 hover:opacity-100!',
+                      'flex items-center px-3 py-2 text-xs transition-all rounded-md mx-1 group-hover/items:opacity-40 hover:opacity-100!',
                       active === id ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
                     )}
                     onClick={() => handleNavClick(id)}
