@@ -17,18 +17,18 @@ const DIRECT_HOME_SECTIONS = ['writing', 'connect'] as const
 const STATS_SECTIONS = ['certifications'] as const
 
 const WORK_LABELS: Record<typeof WORK_SECTIONS[number], string> = {
-  work: 'Projects',
-  experience: 'Experience',
+  work: 'projects',
+  experience: 'experience',
 }
 
 const DIRECT_HOME_LABELS: Record<typeof DIRECT_HOME_SECTIONS[number], string> = {
-  writing: 'Writing',
-  connect: 'Connect',
+  writing: 'writing',
+  connect: 'connect',
 }
 
 const STATS_LABELS: Record<typeof STATS_SECTIONS[number], string> = {
-  certifications: 'Certifications',
-  metrics: 'Metrics',
+  certifications: 'certifications',
+  metrics: 'metrics',
 }
 
 export function Navbar() {
@@ -118,7 +118,7 @@ export function Navbar() {
             className={navLink(isHome && active === null)}
             onClick={() => setActive(null)}
           >
-            Home
+            home
           </Link>
 
           {/* Work dropdown */}
@@ -134,7 +134,7 @@ export function Navbar() {
                 workActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
               )}
             >
-              Work
+              work
               <ChevronDown
                 className={cn('h-3 w-3 transition-transform duration-200', workOpen && 'rotate-180')}
               />
@@ -185,7 +185,7 @@ export function Navbar() {
                 statsActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
               )}
             >
-              Stats
+              stats
               <ChevronDown
                 className={cn('h-3 w-3 transition-transform duration-200', statsOpen && 'rotate-180')}
               />
