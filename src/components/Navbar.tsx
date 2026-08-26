@@ -72,6 +72,7 @@ export function Navbar() {
     })
 
     const onScroll = () => {
+      if (lockedRef.current) return
       const nearBottom =
         window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80
       if (nearBottom) setActive(isStats ? 'metrics' : 'connect')
