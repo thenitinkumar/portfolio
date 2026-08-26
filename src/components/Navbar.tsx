@@ -143,15 +143,12 @@ export function Navbar() {
             </button>
 
             {workOpen && (
-              <div className="absolute left-0 top-full mt-0.5 w-40 rounded-lg border border-border bg-background/95 backdrop-blur-md shadow-lg py-1 z-50 group/items">
+              <div className="absolute left-0 top-full mt-0.5 w-fit rounded-lg border border-border bg-background/95 backdrop-blur-md shadow-lg py-1 z-50 group/items">
                 {WORK_SECTIONS.map(id => (
                   <Link
                     key={id}
                     href={homeSectionHref(id)}
-                    className={cn(
-                      'flex items-center px-3 py-2 text-xs transition-all rounded-md mx-1 group-hover/items:opacity-40 hover:opacity-100!',
-                      active === id ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
-                    )}
+                    className="flex items-center px-3 py-2 text-xs transition-all rounded-md mx-1 whitespace-nowrap text-muted-foreground hover:text-foreground group-hover/items:opacity-40 hover:opacity-100!"
                     onClick={() => handleNavClick(id)}
                   >
                     {WORK_LABELS[id]}
@@ -194,15 +191,12 @@ export function Navbar() {
             </button>
 
             {statsOpen && (
-              <div className="absolute right-0 top-full mt-0.5 w-44 rounded-lg border border-border bg-background/95 backdrop-blur-md shadow-lg py-1 z-50 group/items">
+              <div className="absolute right-0 top-full mt-0.5 w-fit rounded-lg border border-border bg-background/95 backdrop-blur-md shadow-lg py-1 z-50 group/items">
                 {STATS_SECTIONS.map(id => (
                   <Link
                     key={id}
                     href={statsSectionHref(id)}
-                    className={cn(
-                      'flex items-center px-3 py-2 text-xs transition-all rounded-md mx-1 group-hover/items:opacity-40 hover:opacity-100!',
-                      active === id ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
-                    )}
+                    className="flex items-center px-3 py-2 text-xs transition-all rounded-md mx-1 whitespace-nowrap text-muted-foreground hover:text-foreground group-hover/items:opacity-40 hover:opacity-100!"
                     onClick={() => handleNavClick(id)}
                   >
                     {STATS_LABELS[id]}
