@@ -56,7 +56,7 @@ function stackTransform(index: number, total: number) {
 function DeckGroup({ issuerKey, certs }: { issuerKey: string; certs: Certification[] }) {
   const [fanned, setFanned] = useState(false)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
-  const leaveTimer = useRef<ReturnType<typeof setTimeout>>()
+  const leaveTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const issuer = ISSUERS[issuerKey]
   const activeCert = fanned && activeIndex !== null ? certs[activeIndex] : null
 

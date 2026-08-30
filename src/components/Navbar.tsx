@@ -28,7 +28,6 @@ const DIRECT_HOME_LABELS: Record<typeof DIRECT_HOME_SECTIONS[number], string> = 
 
 const STATS_LABELS: Record<typeof STATS_SECTIONS[number], string> = {
   certifications: 'certifications',
-  metrics: 'metrics',
 }
 
 export function Navbar() {
@@ -43,8 +42,8 @@ export function Navbar() {
   const [statsOpen, setStatsOpen] = useState(false)
   const lockedRef = useRef(false)
   const lockTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const workLeaveTimer = useRef<ReturnType<typeof setTimeout>>()
-  const statsLeaveTimer = useRef<ReturnType<typeof setTimeout>>()
+  const workLeaveTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
+  const statsLeaveTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
   useEffect(() => { setMounted(true) }, [])
   useEffect(() => { setActive(null) }, [pathname])
