@@ -1,7 +1,7 @@
 export const skillGroups: { label: string; skills: string[] }[] = [
   {
     label: 'Languages',
-    skills: ['TypeScript', 'JavaScript', 'Python', 'Java'],
+    skills: ['TypeScript', 'JavaScript', 'Python'],
   },
   {
     label: 'Frontend',
